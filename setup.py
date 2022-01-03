@@ -4,7 +4,7 @@ with open('README.md','r') as fh:
     long_desc = fh.read()
 setup(
     name='heuristicsearch',
-    version='0.0.1',
+    version='0.0.3',
     description='Heuristic Searches',
     py_modules=['a_star_search','ao_star','graph'],
     package_dir={'':'src'},

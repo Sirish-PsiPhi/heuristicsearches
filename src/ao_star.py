@@ -1,6 +1,6 @@
 from graph import Graph 
 class AOStar(Graph):
-    def __init__(self, graph, heuristicNodeList, startNode):  # instantiate graph object with graph topology, heuristic values, start node
+    def __init__(self, graph, heuristicNodeList, startNode):  #instantiate graph object with graph topology, heuristic values, start node
         super().__init__(graph)
         self.__H = heuristicNodeList
         self.__start = startNode
@@ -10,6 +10,7 @@ class AOStar(Graph):
 
     def applyAOStar(self):  # starts a recursive AO* algorithm
         self.__aoStar(self.__start, False)
+        self.__printSolution()
 
     def __getNeighbors(self, v):  # gets the Neighbors of a given node
         return self.adjac_lis.get(v, '')
@@ -26,8 +27,8 @@ class AOStar(Graph):
     def __setHeuristicNodeValue(self, n, value):
         self.__H[n] = value  # set the revised heuristic value of a given node
 
-    def printSolution(self):
-        print("FOR GRAPH SOLUTION, TRAVERSE THE GRAPH FROM THE START NODE:", self.__start)
+    def __printSolution(self):
+        print("FOR THE SOLUTION, TRAVERSE THE GRAPH FROM THE START NODE:", self.__start)
         print("------------------------------------------------------------")
         print(self.__solutionGraph)
         print("------------------------------------------------------------")
@@ -54,13 +55,14 @@ class AOStar(Graph):
         return minimumCost, costToChildNodeListDict[minimumCost]  # return Minimum Cost and Minimum Cost child node/s
 
     def __aoStar(self, v, backTracking):  # AO* algorithm for a start node and backTracking status flag
-        print("HEURISTIC VALUES :", self.__H)
-        print("SOLUTION GRAPH :", self.__solutionGraph)
+        # print("HEURISTIC VALUES :", self.__H)
+        # print("SOLUTION GRAPH :", self.__solutionGraph)
         print("PROCESSING NODE :", v)
         print("-----------------------------------------------------------------------------------------")
         if self.__getStatus(v) >= 0:  # if status node v >= 0, compute Minimum Cost nodes of v
             minimumCost, childNodeList = self.__computeMinimumCostChildNodes(v)
             print(minimumCost, childNodeList)
+            print()
             self.__setHeuristicNodeValue(v, minimumCost)
             self.__setStatus(v, len(childNodeList))
             solved = True  # check the Minimum Cost nodes of v are solved

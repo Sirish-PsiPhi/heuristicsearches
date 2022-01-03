@@ -13,11 +13,10 @@ class AStar(Graph):
         self.__a_star_algorithm(start=start, stop=stop)
     
     def __a_star_algorithm(self, start, stop):
-        # In this open_lst is a list of nodes which have been visited, but who's 
-        # neighbours haven't all been always inspected, It starts off with the start 
-  #node
+        # In open_lst is a list of nodes which have been visited, but who's 
+        # neighbours haven't all been inspected, It starts off with the start node
         # And closed_lst is a list of nodes which have been visited
-        # and who's neighbors have been always inspected
+        # and who's neighbors have been inspected
         open_lst = set([start])
         closed_lst = set([])
  
@@ -31,7 +30,7 @@ class AStar(Graph):
         while len(open_lst) > 0:
             n = None
  
-            # it will find a node with the lowest value of f() -
+            # it will find a node with the lowest value of f(n) = g(n) + h(n)
             for v in open_lst:
                 if n == None or poo[v] + self.__get_heuristic(v) < poo[n] + self.__get_heuristic(n):
                     n = v

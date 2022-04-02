@@ -1,4 +1,4 @@
-from graph import Graph 
+from heuristicsearch.graph import Graph 
 class AOStar(Graph):
     def __init__(self, graph, heuristicNodeList, startNode):  #instantiate graph object with graph topology, heuristic values, start node
         super().__init__(graph)

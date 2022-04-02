@@ -1,4 +1,4 @@
-from graph import Graph
+from heuristicsearch.graph import Graph
 
 class AStar(Graph):
     def __init__(self, adjac_lis, heuristicNodeList):
@@ -51,8 +51,15 @@ class AStar(Graph):
                 reconst_path.append(start)
  
                 reconst_path.reverse()
- 
-                print('Path found: {}'.format(reconst_path))
+                print("Path")
+                for i in range(len(reconst_path) - 1):
+                    print(f"{reconst_path[i]} -> ",end="")
+                print(reconst_path[-1])
+                print("Cost")
+                for i in range(len(reconst_path) - 1):
+                    print(f"{poo[reconst_path[i]]} -> ",end="")
+                print(poo[reconst_path[-1]])
+                # print('Path found: {} and the total cost is {}'.format(reconst_path,poo[stop]))
                 return reconst_path
  
             # for all the neighbors of the current node do

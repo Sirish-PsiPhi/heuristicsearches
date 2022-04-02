@@ -9,8 +9,8 @@ Run the following command to install:
 
 ## Useage 
 ```python 
-from a_star_search import AStar
-from ao_star import AOStar
+from heuristicsearch.a_star_search import AStar
+from heuristicsearch.ao_star import AOStar
 # object creation Astar(adjacency_list -> dictionary, heuristic_values -> dicitonary)
 # call the apply_a_star method to find the shortest path
 adjacency_list = {
